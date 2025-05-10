@@ -9,4 +9,4 @@ class Badge(Base):
     name = Column(String, nullable=False)
     description = Column(String)
 
-    users = relationship("UserBadge", back_populates="badge")
+    users = relationship("UserBadge", back_populates="badge", passive_deletes=True)

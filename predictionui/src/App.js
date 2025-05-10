@@ -23,9 +23,22 @@ import DeleteCategoryPage from "./pages/DeleteCategoryPage";
 import AdminCreateArticlePage from "./pages/AdminCreateArticlePage";
 import ArticleDetailPage from "./pages/ArticleDetailPage";
 import RelatedArticlesPage from "./pages/RelatedArticlesPage";
-
-
-
+import EditQuestionForm from "./pages/EditQuestionForm";
+import EditQuestionList from "./pages/EditQuestionList";
+import CategoryListPage from "./pages/CategoryListPage";
+import EditCategoryPage from "./pages/EditCategoryPage";
+import CreateRichArticlePage from './pages/CreateRichArticlePage';
+import OurAnalysisPage from "./pages/OurAnalysisPage";
+import AdminArticlesManage from "./pages/AdminArticleManage";
+// Add these imports with your other imports
+import EditArticlePage from './pages/EditArticlePage';
+import BulkDeleteArticles from './pages/BulkDeleteArticles';
+import LeadersPage from "./pages/LeadersPage";
+import LeaderTimelinePage from "./pages/LeaderTimelinePage";
+import DeleteLeaderPage from "./pages/DeleteLeaderPage";
+import CreateLeaderPage from "./pages/CreateLeaderPage";
+import EditLeaderPage from "./pages/EditLeaderPage";
+import TimelineKeywordSearchPage from "./pages/TimelineKeywordSearchPage";
 
 function App() {
   return (
@@ -54,6 +67,24 @@ function App() {
         <Route path="/admin/create-article" element={<AdminCreateArticlePage />} />
         <Route path="/articles/:id" element={<ArticleDetailPage />} />
         <Route path="/questions/:questionId/related-articles" element={<RelatedArticlesPage />} />
+        <Route path="/admin/questions/edit" element={<EditQuestionList />} />
+        <Route path="/admin/questions/edit/:id" element={<EditQuestionForm />} />
+        <Route path="/admin/categories" element={<CategoryListPage />} />
+        <Route path="/admin/category/edit/:id" element={<EditCategoryPage />} />
+        <Route path="/admin/articles/create-rich" element={<CreateRichArticlePage />} />
+        <Route path="/questions/:questionId/related-articles" element={<RelatedArticlesPage />} />
+        <Route path="/articles/:id" element={<ArticleDetailPage />} />
+        <Route path = "/analysis" element = {<OurAnalysisPage />} />
+        <Route path = "/admin/articles/manage" element = {<AdminArticlesManage />} />
+        <Route path = "/admin/articles/edit/:id" element = {<EditArticlePage />} />
+        <Route path = "/admin/articles/delete" element = {<BulkDeleteArticles />} />
+        <Route path="/leaders" element={<LeadersPage />} />
+        
+        <Route path = "/admin/leader/create" element = {<CreateLeaderPage />} />
+        <Route path = "/admin/delete-leader" element = {<DeleteLeaderPage />} />
+        <Route path = "/admin/leader/edit" element = {<EditLeaderPage />} />
+        <Route path="/leader-timeline/:leaderName" element={<LeaderTimelinePage />} />
+        <Route path="/timeline-search" element={<TimelineKeywordSearchPage />} />
 
       </Routes>
     </Router>

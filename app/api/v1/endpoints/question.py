@@ -9,7 +9,7 @@ from app.models.prediction import Prediction
 from app.models.score import Score
 from app.models.user import User
 import random
-
+from app.schemas.question import QuestionOut, QuestionEdit
 
 
 router = APIRouter()
@@ -134,6 +134,18 @@ def unset_actual_outcome(
     db.commit()
     return {"message": "Outcome and scores reset successfully."}
 
+@router.put("/{question_id}", response_model=QuestionOut)
+def update_question(question_id: int, updated_question: QuestionEdit, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    question = db.query(Question).filter(Question.id == question_id).first()
+    if not question:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    for field, value in updated_question.dict(exclude_unset=True).items():
+        setattr(question, field, value)
+
+    db.commit()
+    db.refresh(question)
+    return question
 
 
 

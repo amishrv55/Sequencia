@@ -18,9 +18,29 @@ const AdminDashboard = () => {
           <AdminCard title="🗑 Delete Question" link="/admin/delete-question" />
           <AdminCard title="🔄 Unset Outcome" link="/admin/unset-outcome" />
           <AdminCard title="🗑 Delete Ticker" link="/admin/delete-ticker" />
-          <AdminCard title="➕ Create Category Create Category" link="/admin/category/create" />
-          <AdminCard title="🗑️ Delete Category Delete Category" link="/admin/category/delete" />
+          <AdminCard title="➕ Create Category" link="/admin/category/create" />
+          <AdminCard title="🗑️ Delete Category" link="/admin/category/delete" />
           <AdminCard title="🗑️ Create Article" link="/admin/create-article" />
+          <AdminCard title="✏️ Edit Questions" link="/admin/questions/edit" />
+          <AdminCard title="✏️ Create Leader" link="/admin/leader/create" />
+          <AdminCard title="✏️ Delete Leader" link="/admin/delete-leader" />
+          <AdminCard title="✏️ Edit Leader" link="/admin/leader/edit" />
+          <AdminCard 
+            title="✨ Create Rich Article" 
+            link="/admin/articles/create-rich" 
+          />
+          <AdminCard title="📋 Manage Categories" link="/admin/categories" />
+          <AdminCard 
+            title="📝 Manage Articles" 
+            link="/admin/articles/manage" 
+            description="View, edit, and delete all articles"
+          />
+          <AdminCard 
+          title="🗑 Delete Articles" 
+          link="/admin/articles/delete" 
+          description="Bulk delete articles"
+          />
+
         </div>
       </div>
     </div>

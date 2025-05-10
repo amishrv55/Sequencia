@@ -17,8 +17,10 @@ class User(Base):
     hashed_password = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    profile = relationship("Profile", back_populates="user", uselist=False)
-    predictions = relationship("Prediction", back_populates="user")
-    comments = relationship("Comment", back_populates="user")
-    badges = relationship("UserBadge", back_populates="user")
+    profile = relationship("Profile", back_populates="user", uselist=False, cascade="all, delete", passive_deletes=True)
+    predictions = relationship("Prediction", back_populates="user", cascade="all, delete", passive_deletes=True)
+    comments = relationship("Comment", back_populates="user",cascade="all, delete", passive_deletes=True)
+    badges = relationship("UserBadge", back_populates="user", cascade="all, delete", passive_deletes=True)
+    questions = relationship("Question", back_populates="author", cascade="all, delete", passive_deletes=True)
+
     is_admin = Column(Boolean, default=False, nullable=False)

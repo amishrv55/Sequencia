@@ -10,5 +10,5 @@ class Keyword(Base):
     id = Column(Integer, primary_key=True, index=True)
     text = Column(String, unique=True, index=True)
 
-    question_keywords = relationship("QuestionKeyword", back_populates="keyword")
-    article_keywords = relationship("ArticleKeyword", back_populates="keyword")
+    question_keywords = relationship("QuestionKeyword", back_populates="keyword", passive_deletes=True)
+    article_keywords = relationship("ArticleKeyword", back_populates="keyword", passive_deletes=True)

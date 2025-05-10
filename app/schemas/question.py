@@ -32,3 +32,20 @@ class QuestionUpdate(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# In schemas/question.py
+from typing import Optional, Literal
+from pydantic import BaseModel
+
+class QuestionEdit(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    category_id: Optional[int] = None
+    prediction_type: Optional[Literal["binary", "range"]] = None
+    actual_binary: Optional[Literal["yes", "no"]] = None
+    actual_range_min: Optional[float] = None
+    actual_range_max: Optional[float] = None
+    image_url: Optional[str] = None
+    file_url: Optional[str] = None
+

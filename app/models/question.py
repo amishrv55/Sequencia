@@ -9,8 +9,8 @@ class Question(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     description = Column(Text)
-    category_id = Column(Integer, ForeignKey("categories.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
+    category_id = Column(Integer, ForeignKey("categories.id", ondelete="CASCADE"))
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
     image_url = Column(String, nullable=True)
     file_url = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -22,8 +22,8 @@ class Question(Base):
     actual_range_max = Column(Float, nullable=True)
 
 
-    category = relationship("Category", back_populates="questions")
-    author = relationship("User")
+    category = relationship("Category", back_populates="questions", passive_deletes=True)
+    author = relationship("User", back_populates="questions" ,passive_deletes=True)
     predictions = relationship("Prediction", back_populates="question")
-    comments = relationship("Comment", back_populates="question")
-    keywords = relationship("QuestionKeyword", back_populates="question")
+    comments = relationship("Comment", back_populates="question", cascade="all, delete", passive_deletes=True)
+    keywords = relationship("QuestionKeyword", back_populates="question", cascade="all, delete", passive_deletes=True)

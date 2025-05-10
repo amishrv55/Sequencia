@@ -25,10 +25,17 @@ const Header = () => {
         <nav className="space-x-4 flex items-center text-gray-700">
           <Link to="/" className="hover:text-indigo-500">Home</Link>
           <Link to="/categories" className="hover:text-indigo-500">Categories</Link>
+          <Link to="/leaders" className="hover:text-indigo-500">Leaders</Link>
+          <Link 
+            to="/analysis"
+            className="px-4 py-2 text-gray-700 hover:text-indigo-600"
+          >
+            Our Analysis
+          </Link>
           <Link to="/leaderboard" className="hover:text-indigo-500">Leaderboard</Link>
           {token && user?.is_admin && (
             <Link to="/admin" className="hover:text-indigo-500">Admin</Link>
-            )}
+          )}
 
           {!token ? (
             <Link to="/login" className="hover:text-indigo-500">Login</Link>
